@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Newspaper - Latest News & Updates</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles that can't be done with Tailwind */
+        .leadership-red {
+            color: #e63946;
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1585829365295-ab7cd400c7e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Animation for breaking news ticker */
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 20s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Breaking News Ticker -->
+    <div class="bg-red-600 text-white py-2 px-4 overflow-hidden">
+        <div class="flex items-center">
+            <span class="font-bold mr-4 whitespace-nowrap">BREAKING NEWS:</span>
+            <div class="overflow-hidden">
+                <div class="ticker-content">
+                    <span class="mr-8">President announces new economic reforms</span>
+                    <span class="mr-8">Stock market reaches all-time high</span>
+                    <span class="mr-8">Major breakthrough in renewable energy technology</span>
+                    <span class="mr-8">Global leaders meet for climate summit</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 bg-white py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo and Brand Name -->
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white font-bold mr-2">
+                    L
+                </div>
+                <a href="#" class="text-2xl font-bold">
+                    <span class="leadership-red">Leadership</span> <span class="text-gray-800">Newspaper</span>
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-red-600 font-medium transition">Home</a>
+                <a href="#news" class="text-gray-800 hover:text-red-600 font-medium transition">News</a>
+                <a href="#politics" class="text-gray-800 hover:text-red-600 font-medium transition">Politics</a>
+                <a href="#business" class="text-gray-800 hover:text-red-600 font-medium transition">Business</a>
+                <a href="#sports" class="text-gray-800 hover:text-red-600 font-medium transition">Sports</a>
+                <a href="#entertainment" class="text-gray-800 hover:text-red-600 font-medium transition">Entertainment</a>
+            </div>
+            
+            <!-- Search and Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <button class="text-gray-600 hover:text-red-600 transition">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-red-600 transition">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <button class="hidden md:block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-gray-800 hover:text-red-600 font-medium transition">Home</a>
+                <a href="#news" class="text-gray-800 hover:text-red-600 font-medium transition">News</a>
+                <a href="#politics" class="text-gray-800 hover:text-red-600 font-medium transition">Politics</a>
+                <a href="#business" class="text-gray-800 hover:text-red-600 font-medium transition">Business</a>
+                <a href="#sports" class="text-gray-800 hover:text-red-600 font-medium transition">Sports</a>
+                <a href="#entertainment" class="text-gray-800 hover:text-red-600 font-medium transition">Entertainment</a>
+                <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition w-full">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-white pt-32 pb-20 md:pt-40 md:pb-28">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl">
+                <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-medium">BREAKING</span>
+                <h1 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Global Leaders Gather for Climate Summit in New York</h1>
+                <p class="text-lg mb-8">World leaders discuss urgent climate action as temperatures continue to rise across the globe. Historic agreements expected.</p>
+                <div class="flex space-x-4">
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-medium transition">
+                        Read Full Story
+                    </button>
+                    <button class="bg-transparent border border-white hover:bg-white hover:text-gray-900 text-white px-6 py-3 rounded font-medium transition">
+                        Watch Live
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="container mx-auto px-4 py-12">
+        <!-- Featured News Section -->
+        <section id="news" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Featured News</h2>
+                <a href="#" class="text-red-600 hover:text-red-800 font-medium">View All <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Card 1 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="News image" class="w-full h-48 object-cover">
+                        <span class="absolute top-4 left-4 bg-red-600 text-white text-xs px-2 py-1 rounded">POLITICS</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span><i class="far fa-clock mr-1"></i> 2 hours ago</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-comment mr-1"></i> 24 comments</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">President Announces Major Cabinet Reshuffle</h3>
+                        <p class="text-gray-600 mb-4">Several key ministers replaced in what analysts call a strategic move ahead of elections.</p>
+                        <a href="#" class="text-red-600 hover:text-red-800 font-medium">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News Card 2 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="News image" class="w-full h-48 object-cover">
+                        <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs px-2 py-1 rounded">BUSINESS</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span><i class="far fa-clock mr-1"></i> 5 hours ago</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-comment mr-1"></i> 18 comments</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Tech Giant Unveils Revolutionary AI Assistant</h3>
+                        <p class="text-gray-600 mb-4">New artificial intelligence platform promises to transform how we interact with technology.</p>
+                        <a href="#" class="text-red-600 hover:text-red-800 font-medium">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- News Card 3 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1605&q=80" alt="News image" class="w-full h-48 object-cover">
+                        <span class="absolute top-4 left-4 bg-green-600 text-white text-xs px-2 py-1 rounded">SPORTS</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span><i class="far fa-clock mr-1"></i> 8 hours ago</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-comment mr-1"></i> 42 comments</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">National Team Secures Spot in World Cup Finals</h3>
+                        <p class="text-gray-600 mb-4">Dramatic last-minute goal sends nation into celebration as team qualifies for first time in 12 years.</p>
+                        <a href="#" class="text-red-600 hover:text-red-800 font-medium">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Politics Section -->
+        <section id="politics" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Politics</h2>
+                <a href="#" class="text-red-600 hover:text-red-800 font-medium">View All <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Main Politics Story -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1560114928-40f1f1eb26a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Politics image" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <span class="bg-red-600 text-white text-xs px-2 py-1 rounded">POLITICS</span>
+                        <h3 class="text-2xl font-bold mt-3 mb-3">Opposition Parties Form Coalition Ahead of Elections</h3>
+                        <p class="text-gray-600 mb-4">Three major opposition parties announce unprecedented alliance to challenge ruling party in upcoming national elections. Analysts predict close race.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <span><i class="far fa-clock mr-1"></i> 3 hours ago</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-comment mr-1"></i> 56 comments</span>
+                        </div>
+                        <a href="#" class="text-red-600 hover:text-red-800 font-medium">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Politics Side Stories -->
+                <div>
+                    <!-- Story 1 -->
+                    <div class="flex mb-6 pb-6 border-b border-gray-200">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://images.unsplash.com/photo-1551289106-1b0b0a4b9d91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Story image" class="w-24 h-24 object-cover rounded">
+                        </div>
+                        <div>
+                            <span class="bg-red-600 text-white text-xs px-2 py-1 rounded">POLITICS</span>
+                            <h4 class="font-bold mt-1 mb-1">Senate Approves Controversial Immigration Bill</h4>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <span><i class="far fa-clock mr-1"></i> 6 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Story 2 -->
+                    <div class="flex mb-6 pb-6 border-b border-gray-200">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://images.unsplash.com/photo-1529107386315-e1c2e26d373d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Story image" class="w-24 h-24 object-cover rounded">
+                        </div>
+                        <div>
+                            <span class="bg-red-600 text-white text-xs px-2 py-1 rounded">POLITICS</span>
+                            <h4 class="font-bold mt-1 mb-1">Foreign Minister Begins Diplomatic Tour of Asia</h4>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <span><i class="far fa-clock mr-1"></i> 9 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Story 3 -->
+                    <div class="flex mb-6">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1405&q=80" alt="Story image" class="w-24 h-24 object-cover rounded">
+                        </div>
+                        <div>
+                            <span class="bg-red-600 text-white text-xs px-2 py-1 rounded">POLITICS</span>
+                            <h4 class="font-bold mt-1 mb-1">Supreme Court to Rule on Landmark Privacy Case</h4>
+                            <div class="flex items-center text-xs text-gray-500">
+                                <span><i class="far fa-clock mr-1"></i> 12 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Business Section -->
+        <section id="business" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Business</h2>
+                <a href="#" class="text-red-600 hover:text-red-800 font-medium">View All <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Business Story 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition hover:shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1551289106-b8fe5c4a2a7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business image" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">BUSINESS</span>
+                        <h4 class="font-bold mt-2 mb-2">Stock Markets Reach Record High Amid Economic Recovery</h4>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 4 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Story 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition hover:shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1665686377065-08ba896d16fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business image" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">BUSINESS</span>
+                        <h4 class="font-bold mt-2 mb-2">Major Merger Creates New Industry Giant</h4>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 7 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Story 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition hover:shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business image" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">BUSINESS</span>
+                        <h4 class="font-bold mt-2 mb-2">Startup Valuation Soars After Latest Funding Round</h4>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 10 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Story 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition hover:shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business image" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">BUSINESS</span>
+                        <h4 class="font-bold mt-2 mb-2">Central Bank Announces Interest Rate Decision</h4>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 13 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sports Section -->
+        <section id="sports" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Sports</h2>
+                <a href="#" class="text-red-600 hover:text-red-800 font-medium">View All <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Main Sports Story -->
+                <div class="md:col-span-2 bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1543357480-c60d40007fa3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sports image" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">SPORTS</span>
+                        <h3 class="text-2xl font-bold mt-3 mb-3">Championship Finals Set After Dramatic Semifinals</h3>
+                        <p class="text-gray-600 mb-4">Underdog team advances to finals after overtime thriller, while defending champions cruise to easy victory.</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <span><i class="far fa-clock mr-1"></i> 5 hours ago</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-comment mr-1"></i> 87 comments</span>
+                        </div>
+                        <a href="#" class="text-red-600 hover:text-red-800 font-medium">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Sports Sidebar -->
+                <div>
+                    <!-- Live Scores Widget -->
+                    <div class="bg-gray-800 text-white rounded-lg overflow-hidden mb-6">
+                        <div class="bg-gray-900 px-4 py-3">
+                            <h4 class="font-bold"><i class="fas fa-bolt text-yellow-400 mr-2"></i> LIVE SCORES</h4>
+                        </div>
+                        <div class="p-4">
+                            <!-- Match 1 -->
+                            <div class="flex justify-between items-center py-3 border-b border-gray-700">
+                                <div class="text-sm">
+                                    <div class="font-medium">Arsenal</div>
+                                    <div class="font-medium">Chelsea</div>
+                                </div>
+                                <div class="bg-red-600 px-2 py-1 rounded font-bold">2 - 1</div>
+                                <div class="text-xs text-gray-400">75'</div>
+                            </div>
+                            
+                            <!-- Match 2 -->
+                            <div class="flex justify-between items-center py-3 border-b border-gray-700">
+                                <div class="text-sm">
+                                    <div class="font-medium">Lakers</div>
+                                    <div class="font-medium">Warriors</div>
+                                </div>
+                                <div class="bg-red-600 px-2 py-1 rounded font-bold">98 - 95</div>
+                                <div class="text-xs text-gray-400">Q4</div>
+                            </div>
+                            
+                            <!-- Match 3 -->
+                            <div class="flex justify-between items-center py-3">
+                                <div class="text-sm">
+                                    <div class="font-medium">Djokovic</div>
+                                    <div class="font-medium">Nadal</div>
+                                </div>
+                                <div class="bg-gray-700 px-2 py-1 rounded font-bold">6-4, 3-6</div>
+                                <div class="text-xs text-gray-400">3rd</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Upcoming Events -->
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <h4 class="font-bold mb-4 border-b pb-2">Upcoming Events</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <div class="bg-gray-100 text-gray-800 text-xs font-bold px-2 py-1 rounded mr-3">TUE</div>
+                                <div>
+                                    <div class="text-sm font-medium">World Cup Qualifiers</div>
+                                    <div class="text-xs text-gray-500">8:00 PM • National Stadium</div>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="bg-gray-100 text-gray-800 text-xs font-bold px-2 py-1 rounded mr-3">WED</div>
+                                <div>
+                                    <div class="text-sm font-medium">NBA Finals Game 3</div>
+                                    <div class="text-xs text-gray-500">9:30 PM • Madison Square Garden</div>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="bg-gray-100 text-gray-800 text-xs font-bold px-2 py-1 rounded mr-3">FRI</div>
+                                <div>
+                                    <div class="text-sm font-medium">Grand Prix Qualifying</div>
+                                    <div class="text-xs text-gray-500">2:00 PM • Monaco Circuit</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Entertainment Section -->
+        <section id="entertainment" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Entertainment</h2>
+                <a href="#" class="text-red-600 hover:text-red-800 font-medium">View All <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Entertainment Story 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Entertainment image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">MOVIES</span>
+                        <h3 class="text-xl font-bold mt-3 mb-3">Blockbuster Film Breaks Opening Weekend Records</h3>
+                        <p class="text-gray-600 mb-4">Latest superhero movie smashes box office records with $250 million domestic debut.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 6 hours ago</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-comment mr-1"></i> 124 comments</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Entertainment Story 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Entertainment image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">MUSIC</span>
+                        <h3 class="text-xl font-bold mt-3 mb-3">Global Music Festival Announces Stellar Lineup</h3>
+                        <p class="text-gray-600 mb-4">Over 50 artists confirmed for three-day festival, including several surprise reunions.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 9 hours ago</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-comment mr-1"></i> 89 comments</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Entertainment Story 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Entertainment image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">TV</span>
+                        <h3 class="text-xl font-bold mt-3 mb-3">Popular Series Announces Final Season</h3>
+                        <p class="text-gray-600 mb-4">Award-winning drama will conclude after next season, showrunner confirms.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span><i class="far fa-clock mr-1"></i> 12 hours ago</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="far fa-comment mr-1"></i> 203 comments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Newsletter Subscription -->
+        <section class="bg-gray-100 rounded-lg p-8 mb-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Stay Updated with Our Newsletter</h2>
+                <p class="text-gray-600 mb-6">Get the latest news delivered straight to your inbox. Subscribe to our daily newsletter.</p>
+                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-medium transition whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </form>
+                <p class="text-xs text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- About Column -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white font-bold mr-2">
+                            L
+                        </div>
+                        <div class="text-xl font-bold">
+                            <span class="text-red-600">Leadership</span> <span>Newspaper</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">Delivering accurate, unbiased news since 1985. Our mission is to inform, educate, and empower our readers.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Advertise</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Categories Column -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Politics</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Business</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Sports</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Entertainment</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Technology</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Health</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>123 News Street, Media City, NY 10001</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>info@leadershipnewspaper.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">© 2023 Leadership Newspaper. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible hover:bg-red-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Newsletter form submission
+        const newsletterForm = document.getElementById('newsletter-form');
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            
+            // Simple validation
+            if (emailInput.value && emailInput.value.includes('@')) {
+                alert('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // News card hover effect
+        const newsCards = document.querySelectorAll('.news-card');
+        
+        newsCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+            });
+        });
+        
+        // Simulate page loading for demo purposes
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.remove('opacity-0');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
